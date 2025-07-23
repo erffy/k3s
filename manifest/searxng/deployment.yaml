@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: searxng
   labels:
-    app: searxng
+    service: searxng
+  name: searxng
+  namespace: searxng
 spec:
+  revisionHistoryLimit: 0
   replicas: 1
   selector:
     matchLabels:
-      app: searxng
-  strategy:
-    type: Recreate
+      service: searxng
   template:
     metadata:
       labels:
-        app: searxng
+        service: searxng
     spec:
       containers:
         - name: searxng
-          image: docker.io/searxng/searxng:latest
+          image: searxng/searxng:2025.7.22-5cbf422
           env:
             - name: SEARXNG_BASE_URL
               value: https://search.erffy.me
@@ -27,6 +27,9 @@ spec:
               mountPath: /etc/searxng
             - name: searxng-data
               mountPath: /var/cache/searxng
+          ports:
+            - containerPort: 8080
+              protocol: TCP
       restartPolicy: Always
       volumes:
         - name: searxng-data

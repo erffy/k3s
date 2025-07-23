@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: adguardhome
-          image: adguard/adguardhome:latest
+          image: adguard/adguardhome:v0.107.63
           volumeMounts:
             - name: adguard-data
               mountPath: /opt/adguardhome/work

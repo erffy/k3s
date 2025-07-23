@@ -15,7 +15,7 @@ spec:
       hostNetwork: true
       containers:
       - name: dashdot
-        image: mauricenino/dashdot:latest
+        image: mauricenino/dashdot:6.1.0
         securityContext:
           privileged: true
         env:
