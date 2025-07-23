@@ -14,7 +14,6 @@ spec:
       labels:
         service: dashdot
     spec:
-      hostNetwork: true
       containers:
       - name: dashdot
         image: mauricenino/dashdot:6.1.0
