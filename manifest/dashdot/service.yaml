@@ -9,6 +9,6 @@ spec:
     app: dashdot
   ports:
     - protocol: TCP
-      port: 3000
+      port: 4000
       targetPort: 3001
       name: http
