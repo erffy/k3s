@@ -8,6 +8,6 @@ spec:
   selector:
     service: slimserve
   ports:
-    - name: http
+    - name: http-initial
       port: 5000
       targetPort: 8080
