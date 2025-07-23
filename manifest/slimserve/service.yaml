@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: slimserve
   labels:
-    app: slimserve
+    service: slimserve
 spec:
   selector:
-    app: slimserve
+    service: slimserve
   ports:
     - name: http
       port: 5000

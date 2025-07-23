@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    io.kompose.service: convertx-data
+    service: convertx-data
   name: convertx-data
 spec:
   accessModes:

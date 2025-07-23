@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: slimserve
   labels:
-    app: slimserve
+    service: slimserve
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: slimserve
+      service: slimserve
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: slimserve
+        service: slimserve
     spec:
       containers:
         - name: slimserve
