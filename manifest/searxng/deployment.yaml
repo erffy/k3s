@@ -30,6 +30,7 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+              name: http-initial
       restartPolicy: Always
       volumes:
         - name: searxng-data
