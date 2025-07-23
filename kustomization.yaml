@@ -6,4 +6,3 @@ resources:
   - manifest/postgresql
   - manifest/searxng
   - manifest/slimserve
-  - manifest/longhorn
