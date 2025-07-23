@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: searxng
+    service: searxng
   ports:
     - protocol: TCP
       port: 8000
