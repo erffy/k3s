@@ -16,6 +16,7 @@ spec:
       labels:
         service: searxng
     spec:
+      hostNetwork: true
       containers:
         - name: searxng
           image: searxng/searxng:2025.7.22-5cbf422
