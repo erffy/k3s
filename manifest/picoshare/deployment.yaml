@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: picoshare
   labels:
-    app: picoshare
+    service: picoshare
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: picoshare
+      service: picoshare
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: picoshare
+        service: picoshare
     spec:
       containers:
         - name: picoshare

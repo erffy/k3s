@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: convertx
   labels:
-    app: convertx
+    service: convertx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: convertx
+      service: convertx
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: convertx
+        service: convertx
     spec:
       containers:
         - name: convertx

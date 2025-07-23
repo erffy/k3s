@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: adguardhome
   labels:
-    app: adguardhome
+    service: adguardhome
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: adguardhome
+      service: adguardhome
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: adguardhome
+        service: adguardhome
     spec:
       containers:
         - name: adguardhome

@@ -5,7 +5,7 @@ metadata:
   namespace: picoshare-namespace
 spec:
   selector:
-    app: picoshare
+    service: picoshare
   ports:
     - name: http
       port: 8000

@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: postgresql
   labels:
-    app: postgresql
+    service: postgresql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgresql
+      service: postgresql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: postgresql
+        service: postgresql
     spec:
       containers:
         - name: postgres-db

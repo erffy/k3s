@@ -2,15 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dashdot
+  labels:
+    service: dashdot
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dashdot
+      service: dashdot
   template:
     metadata:
       labels:
-        app: dashdot
+        service: dashdot
     spec:
       hostNetwork: true
       containers:
