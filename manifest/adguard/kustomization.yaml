@@ -1,0 +1,5 @@
+namespace: adguard-namespace
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - volume.yaml

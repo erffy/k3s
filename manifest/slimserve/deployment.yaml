@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slimserve
+  labels:
+    app: slimserve
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slimserve
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: slimserve
+    spec:
+      containers:
+        - name: slimserve
+          image: ghcr.io/xeome/slimserve:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: slimserve-data
+              mountPath: /data
+      restartPolicy: Always
+      volumes:
+        - name: slimserve-data
+          persistentVolumeClaim:
+            claimName: slimserve-data

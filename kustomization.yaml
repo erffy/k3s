@@ -1,0 +1,8 @@
+resources:
+  - manifest/adguard
+  - manifest/convertx
+  - manifest/dashdot
+  - manifest/picoshare
+  - manifest/postgresql
+  - manifest/searxng
+  - manifest/slimserve

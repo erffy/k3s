@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adguardhome
+  labels:
+    app: adguardhome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adguardhome
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: adguardhome
+    spec:
+      containers:
+        - name: adguardhome
+          image: adguard/adguardhome:latest
+          volumeMounts:
+            - name: adguard-data
+              mountPath: /opt/adguardhome/work
+            - name: adguard-data
+              mountPath: /opt/adguardhome/conf
+      restartPolicy: Always
+      volumes:
+        - name: adguard-data
+          persistentVolumeClaim:
+            claimName: adguard-data

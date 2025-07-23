@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  labels:
+    app: picoshare
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: picoshare
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: picoshare
+    spec:
+      containers:
+        - name: picoshare
+          image: mtlynch/picoshare:latest
+          args:
+            - -db
+            - /data/store.db
+          env:
+            - name: PORT
+              value: "4001"
+            - name: PS_SHARED_SECRET
+              value: QTWGRFC00
+          ports:
+            - containerPort: 4001
+              protocol: TCP
+          volumeMounts:
+            - name: picoshare-data
+              mountPath: /data
+      restartPolicy: Always
+      volumes:
+        - name: picoshare-data
+          persistentVolumeClaim:
+            claimName: picoshare-data

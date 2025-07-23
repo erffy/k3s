@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashdot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dashdot
+  template:
+    metadata:
+      labels:
+        app: dashdot
+    spec:
+      hostNetwork: true
+      containers:
+      - name: dashdot
+        image: mauricenino/dashdot:latest
+        securityContext:
+          privileged: true
+        env:
+        - name: DASHDOT_SHOW_DASH_VERSION
+          value: "bottom_right"
+        - name: DASHDOT_ALWAYS_SHOW_PERCENTAGES
+          value: "true"
+        - name: DASHDOT_ENABLE_CPU_TEMPS
+          value: "true"
+        - name: DASHDOT_ACCEPT_OOKLA_EULA
+          value: "true"
+        - name: DASHDOT_PAGE_TITLE
+          value: "Homelab"
+        - name: DASHDOT_USE_NETWORK_INTERFACE
+          value: "enp3s0"
+        - name: DASHDOT_NETWORK_SPEED_AS_BYTES
+          value: "true"
+        volumeMounts:
+        - name: host-root
+          mountPath: /mnt/host
+          readOnly: true
+      volumes:
+      - name: host-root
+        hostPath:
+          path: /
+          type: Directory

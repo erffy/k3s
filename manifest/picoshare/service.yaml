@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: picoshare
+  labels:
+    app: picoshare
+spec:
+  selector:
+    app: picoshare
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 4001

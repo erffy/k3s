@@ -1,0 +1,6 @@
+namespace: slimserve-namespace
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - volume.yaml

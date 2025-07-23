@@ -1,0 +1,5 @@
+namespace: postgresql-namespace
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - volume.yaml

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: convertx
+  labels:
+    app: convertx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: convertx
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: convertx
+    spec:
+      containers:
+        - name: convertx
+          image: ghcr.io/c4illin/convertx:latest
+          env:
+            - name: AUTO_DELETE_EVERY_N_HOURS
+              value: "72"
+            - name: HTTP_ALLOWED
+              value: "true"
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: convertx-data
+              mountPath: /app/data
+      restartPolicy: Always
+      volumes:
+        - name: convertx-data
+          persistentVolumeClaim:
+            claimName: convertx-data

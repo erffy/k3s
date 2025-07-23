@@ -1,0 +1,4 @@
+namespace: dashdot-namespace
+resources:
+  - namespace.yaml
+  - deployment.yaml
