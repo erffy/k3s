@@ -33,6 +33,9 @@ spec:
           value: "enp3s0"
         - name: DASHDOT_NETWORK_SPEED_AS_BYTES
           value: "true"
+        ports:
+        - containerPort: 3001
+          protocol: TCP
         volumeMounts:
         - name: host-root
           mountPath: /mnt/host

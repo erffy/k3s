@@ -24,6 +24,15 @@ spec:
               mountPath: /opt/adguardhome/work
             - name: adguard-data
               mountPath: /opt/adguardhome/conf
+          ports:
+          - containerPort: 53
+            name: dns
+            protocol: UDP
+          - containerPort: 3000
+            name: http-initial
+          - containerPort: 80
+            name: http
+            protocol: TCP
       restartPolicy: Always
       volumes:
         - name: adguard-data

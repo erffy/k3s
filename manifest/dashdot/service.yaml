@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: convertx
-  namespace: convertx-namespace
+  name: dashdot-service
+  namespace: dashdot-namespace
 spec:
   type: LoadBalancer
   selector:
-    app: convertx
+    app: dashdot
   ports:
     - protocol: TCP
-      port: 7000
-      targetPort: 3000
+      port: 3000
+      targetPort: 3001
       name: http
