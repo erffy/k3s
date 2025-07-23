@@ -8,5 +8,5 @@ spec:
     service: picoshare
   ports:
     - name: http
-      port: 8000
+      port: 9000
       targetPort: 4001
