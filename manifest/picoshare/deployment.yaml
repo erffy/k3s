@@ -25,8 +25,9 @@ spec:
           env:
             - name: PORT
               value: "4001"
-            - name: PS_SHARED_SECRET
-              value: QTWGRFC00
+          envFrom:
+            - configMapRef:
+                name: picoshare-config
           ports:
             - containerPort: 4001
               protocol: TCP

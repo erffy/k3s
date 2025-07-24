@@ -4,6 +4,7 @@ metadata:
   name: picoshare
   namespace: picoshare-namespace
 spec:
+  type: LoadBalancer
   selector:
     service: picoshare
   ports:

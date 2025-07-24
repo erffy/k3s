@@ -5,6 +5,7 @@ metadata:
   labels:
     service: slimserve
 spec:
+  type: LoadBalancer
   selector:
     service: slimserve
   ports:
