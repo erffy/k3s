@@ -29,8 +29,6 @@ A lightweight Kubernetes cluster
 ### Prerequisites
 
 - Root access
-- `kubectl` access
-- `kustomize` for manifest templating
 
 ---
 
