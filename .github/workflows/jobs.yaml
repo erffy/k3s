@@ -9,4 +9,4 @@ permissions:
 
 jobs:
   format:
-    uses: ./.github/workflows/yaml-formatter.yml
+    uses: ./.github/workflows/yaml-formatter.yaml
